@@ -1,7 +1,7 @@
 name: Start_Minecraft_Bot
 
 on:
-  workflow_dispatch: # Das erlaubt es dir, den Bot per Knopf zu starten
+  workflow_dispatch:
 
 jobs:
   run-bot:
@@ -11,7 +11,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Installiere Library
-        run: npm install mineflayer
+      - name: Installiere Libraries
+        run: npm install mineflayer mineflayer-bedrock # Das fügt Bedrock-Support hinzu
       - name: Bot starten
         run: node bot.js
