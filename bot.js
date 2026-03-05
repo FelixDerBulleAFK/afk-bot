@@ -1,11 +1,11 @@
-const bedrock = require("bedrock-protocol");
+const mineflayer = require('mineflayer')
 
-const client = bedrock.createClient({
-  host: "SERVERIP",   // hier kommt später die Server-IP rein
-  port: 19132,        // Standard Bedrock-Port
-  username: "AFKBot"  // Name vom Bot
-});
+const bot = mineflayer.createBot({
+  host: 'DEINE_SERVER_IP', // Hier die IP des Bedrock-Servers eintragen
+  port: 19132,             // Standard-Port für Bedrock
+  username: 'AFK_Bot',
+  version: '1.20.10'       // WICHTIG: Muss zur Serverversion passen
+})
 
-client.on("join", () => {
-  console.log("Bot ist auf dem Server!");
-});
+bot.on('spawn', () => console.log('Bot ist online!'))
+bot.on('error', (err) => console.log('Fehler:', err))
