@@ -1,11 +1,16 @@
 const mineflayer = require('mineflayer')
 
 const bot = mineflayer.createBot({
-  host: 'DEINE_SERVER_IP', // Hier die IP des Bedrock-Servers eintragen
-  port: 19132,             // Standard-Port für Bedrock
-  username: 'AFK_Bot',
-  version: '1.20.10'       // WICHTIG: Muss zur Serverversion passen
+  host: 'Windsmp.de', // Hier die IP deines Servers eintragen
+  port: 19132,             // Meistens 19132 bei Bedrock
+  username: 'MeinAFKBot',
+  version: false           // 'false' lässt den Bot die Version automatisch raten
 })
 
-bot.on('spawn', () => console.log('Bot ist online!'))
-bot.on('error', (err) => console.log('Fehler:', err))
+bot.on('spawn', () => {
+  console.log('Erfolg! Der Bot ist auf dem Server.')
+})
+
+bot.on('error', (err) => {
+  console.log('Fehler aufgetreten: ' + err)
+})
