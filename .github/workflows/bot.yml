@@ -1,18 +1,17 @@
-name: afkbot
+name: Start_Minecraft_Bot
 
 on:
-  workflow_dispatch:  # manuelles Starten
-  schedule:
-    - cron: "*/30 * * * *"  # alle 30 Minuten neu starten
+  workflow_dispatch: # Das erlaubt es dir, den Bot per Knopf zu starten
 
 jobs:
   run-bot:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Node.js setup
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '18'
-      - run: npm install bedrock-protocol
-      - run: node bot.js
+          node-version: '20'
+      - name: Installiere Library
+        run: npm install mineflayer
+      - name: Bot starten
+        run: node bot.js
